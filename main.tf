@@ -16,7 +16,6 @@ module "cdn" {
   certificate_arn     = module.certificate.certificate_arn
   s3_bucket_domain_name = module.storage.bucket_regional_domain_name
   s3_bucket_id        = module.storage.bucket_id
-
   depends_on = [module.certificate]
 }
 

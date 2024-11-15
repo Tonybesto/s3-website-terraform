@@ -17,17 +17,18 @@ resource "aws_s3_bucket_website_configuration" "website" {
 resource "aws_s3_bucket_policy" "website" {
     bucket = aws_s3_bucket.s3_website.id
 
-    policy = jsonencode ({
+    policy = jsonencode({
         Version = "2012-10-17"
         Statement = [
             {
-                Sid = "PublicReadGetObject"
-                Effect = "Allow"
+                Sid       = "PublicReadGetObject"
+                Effect    = "Allow"
                 Principal = {
-                    AWS = var.cloudfront_oai_arn
+                    CanonicalUser = var.cloudfront_oai_arn
                 }
-                Action = "s3:GetObject"
-                Resource = "${aws_s3_bucket.s3_website.arn}"
-            }]
+                Action   = "s3:GetObject"
+                Resource = "${aws_s3_bucket.s3_website.arn}/*"
+            }
+        ]
     })
 }
