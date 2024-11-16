@@ -7,6 +7,7 @@ resource "aws_cloudfront_distribution" "website" {
   is_ipv6_enabled    = true
   default_root_object = "index.html"
   aliases            = [var.domain_name]
+  price_class        = "PriceClass_100"
 
   origin {
     domain_name = var.s3_bucket_domain_name
