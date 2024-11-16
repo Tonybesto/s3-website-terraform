@@ -6,11 +6,11 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket         = "aliquot-terraform-state"
-    key            = "static-site/terraform.tfstate"
-    region         = "us-east-1"
-  }
+  # backend "s3" {
+  #   bucket         = "aliquot-terraform-state"
+  #   key            = "static-site/terraform.tfstate"
+  #   region         = "us-east-1"
+  # }
 }
 
 
