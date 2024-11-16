@@ -24,7 +24,7 @@ resource "aws_s3_bucket_policy" "website" {
                 Sid       = "PublicReadGetObject"
                 Effect    = "Allow"
                 Principal = {
-                    CanonicalUser = var.cloudfront_oai_arn
+                    AWS = var.cloudfront_oai_arn
                 }
                 Action   = "s3:GetObject"
                 Resource = "${aws_s3_bucket.s3_website.arn}/*"
